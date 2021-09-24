@@ -1,0 +1,18 @@
+{
+  "fallbackIntentTemplateData" :
+  {
+    "type" : "object",
+    "properties" :
+    {
+      "fallbackMessage": "Sorry, some error has been occurred or some internal problem occurred. Or, i could not understand your voice. So, please start freshly.",
+      "hintString" : "try the task image face finder!"
+    },
+    "transformers" :
+    [
+      {
+        "inputPath" : "hintString",
+        "transformer" : "textToHint"
+      }
+    ]
+  }
+}

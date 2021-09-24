@@ -1,0 +1,194 @@
+{
+  "type"  : "APL",
+  "version" : "1.0",
+  "import" :
+  [
+    {
+      "name": "alexa-viewport-profiles",
+      "version": "1.0.0"
+    },
+    {
+      "name": "alexa-layouts",
+      "version": "1.0.0"
+    }
+  ],
+  "resources" :
+  [
+    {
+      "description" : "Task name empty colors",
+      "colors" :
+      {
+        "taskNameEmptyHeaderColor" : "#FFFFFF",
+        "taskNameEmptyHeaderBgColor" : "#8BEDFF"
+      }
+    },
+    {
+      "description" : "Task name empty font size",
+      "dimensions" :
+      {
+        "headFontSize" : "50px"
+      }
+    }
+  ],
+  "styles": {
+    "TaskNameEmptyStyle": {
+      "values": [
+        {
+          "fontSize": "@headFontSize",
+          "color": "@taskNameEmptyHeaderColor",
+          "textAlign": "center",
+          "fontWeight": 300
+        }
+      ]
+    },
+    "TaskNameEmptyStyleLarge": {
+      "extends": "TaskNameEmptyStyle",
+      "values": [
+        {
+          "fontSize": "@headFontSize",
+          "color": "@taskNameEmptyHeaderColor",
+          "paddingLeft": "30px",
+          "paddingTop": "30px",
+          "fontWeight": 100,
+          "textAlign" : "center"
+        }
+      ]
+    }
+  },
+  "layouts" :
+  {
+    "TaskNameEmptyHeader" :
+    {
+      "parameters" :
+      [
+        {
+          "name" : "title",
+          "type" : "string"
+        }
+      ],
+      "items": [
+        {
+          "when": "${@viewportProfile == @hubRoundSmall}",
+          "type": "Container",
+          "direction": "column",
+          "alignItems": "center",
+          "width": "100vw",
+          "height": "20vh",
+          "items": [
+            {
+              "type": "Frame",
+              "height": "95vh",
+              "width": "100vw",
+              "backgroundColor": "@taskNameEmptyHeaderBgColor",
+              "items": [
+                {
+                  "type": "Text",
+                  "text": "${title}",
+                  "style": "TaskNameEmptyStyle",
+                  "paddingTop": "5vh"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Text",
+          "text": "${title}",
+          "style": "TaskNameEmptyStyleLarge"
+        }
+      ]
+    }
+  },
+  "mainTemplate" :
+  {
+    "parameters" :
+    [
+      "payload"
+    ],
+    "item" :
+    [
+      {
+        "when" : "${@viewportProfile == @hubRoundSmall}",
+        "type" : "Container",
+        "direction" : "column",
+        "width" : "100%",
+        "height" : "100%",
+        "items" :
+        [
+          {
+            "type": "Image",
+            "source": "https://s3.amazonaws.com/solverpro/alexa5.jpg",
+            "position": "absolute",
+            "width": "100%",
+            "height" : "100%",
+            "scale": "best-fill"
+          },
+          {
+            "type" : "TaskNameEmptyHeader",
+            "title" : "Task Name Empty!"
+          },
+          {
+            "type" : "ScrollView",
+            "width" : "100%",
+            "height" : "100%",
+            "item" :
+            [
+              {
+                "type" : "Text",
+                "id" : "taskNameEmptyComponent",
+                "text": "${payload.taskNameEmptyTemplateData.properties.taskNameEmptyMessage}",
+                "fontSize" : "55px",
+                "color" : "#ffffff",
+                "width" : "100%",
+                "height" : "100%",
+                "fontWeight" : 300,
+                "textAlign" : "center",
+                "paddingLeft" : "5vw",
+                "paddingRight" : "5vw",
+                "paddingBottom" : "10vh"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Container",
+        "direction": "column",
+        "width": "100vw",
+        "height": "100vh",
+        "items": [
+          {
+            "type": "Image",
+            "source": "https://s3.amazonaws.com/solverpro/alexa5.jpg",
+            "position": "absolute",
+            "width": "100vw",
+            "height": "100vh",
+            "scale": "best-fill"
+          },
+          {
+            "type" : "TaskNameEmptyHeader",
+            "title" : "Task Name Empty!"
+          },
+          {
+            "type": "ScrollView",
+            "width": "100vw",
+            "height": "100vh",
+            "items": [
+              {
+                "type": "Text",
+                "id": "taskNameEmptySpeechText",
+                "text": "${payload.taskNameEmptyTemplateData.properties.taskNameEmptyMessage}",
+                "fontSize": "55px",
+                "color": "#ffffff",
+                "paddingLeft": "30px",
+                "paddingRight" : "30px",
+                "paddingTop": "30px",
+                "fontWeight": 300
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

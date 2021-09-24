@@ -1,0 +1,10 @@
+{
+  "fileFormatEmptyTemplateData" :
+  {
+    "type" : "object",
+    "properties" :
+    {
+      "fileFormatEmptyMessage": "Sorry, i could not find your file format. So please, first say the file format with the keyword file format."
+    }
+  }
+}

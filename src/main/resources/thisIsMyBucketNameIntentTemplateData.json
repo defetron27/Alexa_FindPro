@@ -1,0 +1,10 @@
+{
+  "thisIsMyBucketNameTemplateData" :
+  {
+    "type" : "object",
+    "properties" :
+    {
+      "thisIsMyBucketNameMessage": "Okay, now say the file name of your file with the keyword file name. Example, file name apple."
+    }
+  }
+}

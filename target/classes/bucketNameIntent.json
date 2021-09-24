@@ -1,0 +1,194 @@
+{
+  "type"  : "APL",
+  "version" : "1.0",
+  "import" :
+  [
+    {
+      "name": "alexa-viewport-profiles",
+      "version": "1.0.0"
+    },
+    {
+      "name": "alexa-layouts",
+      "version": "1.0.0"
+    }
+  ],
+  "resources" :
+  [
+    {
+      "description" : "Bucket name colors",
+      "colors" :
+      {
+        "bucketNameHeaderColor" : "#FFFFFF",
+        "bucketNameHeaderBgColor" : "#8BEDFF"
+      }
+    },
+    {
+      "description" : "Bucket name font size",
+      "dimensions" :
+      {
+        "headFontSize" : "50px"
+      }
+    }
+  ],
+  "styles": {
+    "BucketNameStyle": {
+      "values": [
+        {
+          "fontSize": "@headFontSize",
+          "color": "@bucketNameHeaderColor",
+          "textAlign": "center",
+          "fontWeight": 300
+        }
+      ]
+    },
+    "BucketNameStyleLarge": {
+      "extends": "BucketNameStyle",
+      "values": [
+        {
+          "fontSize": "@headFontSize",
+          "color": "@bucketNameHeaderColor",
+          "paddingLeft": "30px",
+          "paddingTop": "30px",
+          "fontWeight": 100,
+          "textAlign" : "center"
+        }
+      ]
+    }
+  },
+  "layouts" :
+  {
+    "BucketNameHeader" :
+    {
+      "parameters" :
+      [
+        {
+          "name" : "title",
+          "type" : "string"
+        }
+      ],
+      "items": [
+        {
+          "when": "${@viewportProfile == @hubRoundSmall}",
+          "type": "Container",
+          "direction": "column",
+          "alignItems": "center",
+          "width": "100vw",
+          "height": "20vh",
+          "items": [
+            {
+              "type": "Frame",
+              "height": "95vh",
+              "width": "100vw",
+              "backgroundColor": "@bucketNameHeaderBgColor",
+              "items": [
+                {
+                  "type": "Text",
+                  "text": "${title}",
+                  "style": "BucketNameStyle",
+                  "paddingTop": "5vh"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Text",
+          "text": "${title}",
+          "style": "BucketNameStyleLarge"
+        }
+      ]
+    }
+  },
+  "mainTemplate" :
+  {
+    "parameters" :
+    [
+      "payload"
+    ],
+    "item" :
+    [
+      {
+        "when" : "${@viewportProfile == @hubRoundSmall}",
+        "type" : "Container",
+        "direction" : "column",
+        "width" : "100%",
+        "height" : "100%",
+        "items" :
+        [
+          {
+            "type": "Image",
+            "source": "https://s3.amazonaws.com/solverpro/alexa5.jpg",
+            "position": "absolute",
+            "width": "100%",
+            "height" : "100%",
+            "scale": "best-fill"
+          },
+          {
+            "type" : "BucketNameHeader",
+            "title" : "Bucket Name!"
+          },
+          {
+            "type" : "ScrollView",
+            "width" : "100%",
+            "height" : "100%",
+            "item" :
+            [
+              {
+                "type" : "Text",
+                "id" : "bucketNameComponent",
+                "text": "${payload.bucketNameIntentTemplateData.properties.bucketNameMessage}",
+                "fontSize" : "55px",
+                "color" : "#ffffff",
+                "width" : "100%",
+                "height" : "100%",
+                "fontWeight" : 300,
+                "textAlign" : "center",
+                "paddingLeft" : "5vw",
+                "paddingRight" : "5vw",
+                "paddingBottom" : "10vh"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Container",
+        "direction": "column",
+        "width": "100vw",
+        "height": "100vh",
+        "items": [
+          {
+            "type": "Image",
+            "source": "https://s3.amazonaws.com/solverpro/alexa5.jpg",
+            "position": "absolute",
+            "width": "100vw",
+            "height": "100vh",
+            "scale": "best-fill"
+          },
+          {
+            "type" : "BucketNameHeader",
+            "title" : "Bucket Name!"
+          },
+          {
+            "type": "ScrollView",
+            "width": "100vw",
+            "height": "100vh",
+            "items": [
+              {
+                "type": "Text",
+                "id": "bucketNameSpeechText",
+                "text": "${payload.bucketNameIntentTemplateData.properties.bucketNameMessage}",
+                "fontSize": "55px",
+                "color": "#ffffff",
+                "paddingLeft": "30px",
+                "paddingRight" : "30px",
+                "paddingTop": "30px",
+                "fontWeight": 300
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

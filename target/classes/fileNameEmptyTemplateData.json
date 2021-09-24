@@ -1,0 +1,10 @@
+{
+  "fileNameEmptyTemplateData" :
+  {
+    "type" : "object",
+    "properties" :
+    {
+      "fileNameEmptyMessage": "Sorry, i could not find your file name. So please, first say the file name with the keyword file name."
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "ThisIsMyFileNameTemplateData" :
+  {
+    "type" : "object",
+    "properties" :
+    {
+      "thisIsMyFileNameMessage": "Okay, now say the file format of your file with the keyword file format. Example, file format jpg."
+    }
+  }
+}

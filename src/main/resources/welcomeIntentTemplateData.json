@@ -1,0 +1,18 @@
+{
+  "welcomeIntentTemplateData" :
+  {
+    "type" : "object",
+    "properties" :
+    {
+      "welcomeMessage": "Hi, welcome to finder pro. My work is to analyse the image and video files. After analyse completed, i say results of the task. If you don't know what task i will do, simple say show the task menu. Otherwise say the task name with keyword task name.",
+      "hintString" : "try the task image face finder!"
+    },
+    "transformers" :
+    [
+      {
+        "inputPath" : "hintString",
+        "transformer" : "textToHint"
+      }
+    ]
+  }
+}

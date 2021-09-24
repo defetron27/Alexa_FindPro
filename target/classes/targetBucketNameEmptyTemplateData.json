@@ -1,0 +1,10 @@
+{
+  "targetBucketNameEmptyTemplateData" :
+  {
+    "type" : "object",
+    "properties" :
+    {
+      "targetBucketNameEmptyMessage": "Sorry, i could not find your target bucket name. So please, say the target bucket name with the keyword target bucket name."
+    }
+  }
+}

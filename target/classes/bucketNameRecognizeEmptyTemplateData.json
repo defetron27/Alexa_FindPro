@@ -1,0 +1,10 @@
+{
+  "bucketNameRecognizeEmptyTemplateData" :
+  {
+    "type" : "object",
+    "properties" :
+    {
+      "bucketNameRecognizeEmptyMessage": "Sorry, i could not understand your voice. So, please say the bucket name again with the keyword bucket name. "
+    }
+  }
+}

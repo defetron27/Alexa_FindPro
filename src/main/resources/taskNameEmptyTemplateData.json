@@ -1,0 +1,18 @@
+{
+  "taskNameEmptyTemplateData" :
+  {
+    "type" : "object",
+    "properties" :
+    {
+      "taskNameEmptyMessage": "Sorry, i could not find your task name. So please, first say the task name with the keyword task name.",
+      "hintString" : "try the task image face finder!"
+    },
+    "transformers" :
+    [
+      {
+        "inputPath" : "hintString",
+        "transformer" : "textToHint"
+      }
+    ]
+  }
+}

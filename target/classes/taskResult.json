@@ -1,0 +1,316 @@
+{
+  "type"  : "APL",
+  "version" : "1.0",
+  "import" :
+  [
+    {
+      "name": "alexa-viewport-profiles",
+      "version": "1.0.0"
+    },
+    {
+      "name": "alexa-layouts",
+      "version": "1.0.0"
+    }
+  ],
+  "resources" :
+  [
+    {
+      "colors" :
+      {
+        "taskResultHeaderColor" : "#FFFFFF",
+        "taskResultHeaderBgColor" : "#8BEDFF"
+      }
+    },
+    {
+      "dimensions" :
+      {
+        "headFontSizeRoundSmall" : "35px",
+        "headFontSizeMedium" : "40px",
+        "headFontSizeLarge" : "45px",
+        "headFontSizeExLarge" : "60px"
+      }
+    }
+  ],
+  "styles": {
+    "TaskResultHeaderStyleRoundSmall": {
+      "values": [
+        {
+          "fontSize": "@headFontSizeRoundSmall",
+          "color": "@taskResultHeaderColor",
+          "textAlign": "center",
+          "fontWeight": "bold",
+          "paddingTop": "5vh",
+          "paddingBottom" : "4vh",
+          "paddingLeft" : "10vw",
+          "paddingRight" : "10vw"
+        }
+      ]
+    },
+    "TaskResultHeaderStyleMedium":
+    {
+      "values": [
+        {
+          "fontSize": "@headFontSizeMedium",
+          "color": "@taskResultHeaderColor",
+          "paddingLeft": "30px",
+          "paddingRight" : "30px",
+          "paddingTop": "20px",
+          "paddingBottom" : "20px",
+          "fontWeight": "bold",
+          "textAlign" : "center",
+          "backgroundColor": "@taskResultHeaderBgColor"
+        }
+      ]
+    },
+    "TaskResultHeaderStyleLarge":
+    {
+      "values":
+      [
+        {
+          "fontSize": "@headFontSizeLarge",
+          "color": "@taskResultHeaderColor",
+          "paddingLeft": "30px",
+          "paddingRight" : "30px",
+          "paddingTop": "33px",
+          "paddingBottom" : "20px",
+          "fontWeight": "bold",
+          "textAlign" : "center",
+          "backgroundColor": "@taskResultHeaderBgColor"
+        }
+      ]
+    },
+    "TaskResultHeaderStyleExLarge":
+    {
+      "values":
+      [
+        {
+          "fontSize": "@headFontSizeExLarge",
+          "color": "@taskResultHeaderColor",
+          "paddingLeft": "30px",
+          "paddingRight" : "30px",
+          "paddingTop": "43px",
+          "paddingBottom" : "20px",
+          "fontWeight": "bold",
+          "textAlign" : "center",
+          "backgroundColor": "@taskResultHeaderBgColor"
+        }
+      ]
+    },
+    "TaskResultMessageStyleRound" :
+    {
+      "values" :
+      [
+        {
+          "fontSize" : "55px",
+          "color" : "#ffffff",
+          "width" : "100%",
+          "height" : "90%",
+          "fontWeight" : 300,
+          "textAlign" : "center",
+          "paddingLeft" : "6vw",
+          "paddingRight" : "5vw",
+          "paddingTop" : "3vh",
+          "paddingBottom" : "36vh"
+        }
+      ]
+    },
+    "TaskResultMessageStyleLarge" :
+    {
+      "values" :
+      [
+        {
+          "fontSize": "55px",
+          "color": "#ffffff",
+          "paddingLeft": "30px",
+          "paddingRight" : "30px",
+          "paddingTop": "10px",
+          "paddingBottom" : "20vh",
+          "fontWeight": 300
+        }
+      ]
+    }
+  },
+  "layouts" :
+  {
+    "TaskResultHeader" :
+    {
+      "parameters" :
+      [
+        {
+          "name" : "title",
+          "type" : "string"
+        }
+      ],
+      "items": [
+        {
+          "when": "${@viewportProfile == @hubRoundSmall}",
+          "type": "Container",
+          "direction": "column",
+          "alignItems": "center",
+          "width": "100vw",
+          "height": "25vh",
+          "items": [
+            {
+              "type": "Frame",
+              "height": "100vh",
+              "width": "100vw",
+              "backgroundColor": "@taskResultHeaderBgColor",
+              "items": [
+                {
+                  "type": "Text",
+                  "text": "${title}",
+                  "style": "TaskResultHeaderStyleRoundSmall"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "when": "${@viewportProfile == @hubLandscapeMedium}",
+          "type": "Container",
+          "direction": "column",
+          "alignItems": "center",
+          "width": "100vw",
+          "height": "15vh",
+          "items": [
+            {
+              "type": "Frame",
+              "height": "100vh",
+              "width": "100vw",
+              "backgroundColor": "@taskResultHeaderBgColor",
+              "items": [
+                {
+                  "type": "Text",
+                  "text": "${title}",
+                  "style": "TaskResultHeaderStyleMedium"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "when": "${@viewportProfile == @hubLandscapeLarge}",
+          "type": "Container",
+          "direction": "column",
+          "alignItems": "center",
+          "width": "100vw",
+          "height": "15vh",
+          "items": [
+            {
+              "type": "Frame",
+              "height": "100vh",
+              "width": "100vw",
+              "backgroundColor": "@taskResultHeaderBgColor",
+              "items": [
+                {
+                  "type": "Text",
+                  "text": "${title}",
+                  "style": "TaskResultHeaderStyleLarge"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Container",
+          "direction": "column",
+          "alignItems": "center",
+          "width": "100vw",
+          "height": "15vh",
+          "items": [
+            {
+              "type": "Frame",
+              "height": "100vh",
+              "width": "100vw",
+              "backgroundColor": "@taskResultHeaderBgColor",
+              "items": [
+                {
+                  "type": "Text",
+                  "text": "${title}",
+                  "style": "TaskResultHeaderStyleExLarge"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "mainTemplate" :
+  {
+    "parameters" :
+    [
+      "payload"
+    ],
+    "item" :
+    [
+      {
+        "when" : "${@viewportProfile == @hubRoundSmall}",
+        "type" : "Container",
+        "direction" : "column",
+        "width" : "100%",
+        "height" : "100%",
+        "items" :
+        [
+          {
+            "type": "Image",
+            "source": "https://s3.amazonaws.com/solverpro/alexa5.jpg",
+            "position": "absolute",
+            "width": "100%",
+            "height" : "100%",
+            "scale": "best-fill"
+          },
+          {
+            "type" : "TaskResultHeader",
+            "title" : "${payload.taskResultTemplateData.properties.taskResultHeading}"
+          },
+          {
+            "type" : "ScrollView",
+            "width" : "100vw",
+            "height" : "100vh",
+            "item" :
+            [
+              {
+                "type" : "Text",
+                "text": "${payload.taskResultTemplateData.properties.taskResultMessage}",
+                "style" : "TaskResultMessageStyleRound"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Container",
+        "direction": "column",
+        "width": "100vw",
+        "height": "100vh",
+        "items": [
+          {
+            "type": "Image",
+            "source": "https://s3.amazonaws.com/solverpro/alexa5.jpg",
+            "position": "absolute",
+            "width": "100vw",
+            "height": "100vh",
+            "scale": "best-fill"
+          },
+          {
+            "type" : "TaskResultHeader",
+            "title" : "${payload.taskResultTemplateData.properties.taskResult}"
+          },
+          {
+            "type": "ScrollView",
+            "width": "100vw",
+            "height": "100vh",
+            "items": [
+              {
+                "type": "Text",
+                "text": "${payload.taskResultTemplateData.properties.taskResultMessage}",
+                "style" : "TaskNameMessageStyleLarge"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
